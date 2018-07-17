@@ -19,21 +19,17 @@ module.exports = {
   },
 
   OAuthRequest: function(scopes, cache) {
-    var client_id = config.credentials.client_id;
-    var client_secret = config.credentials.client_secret;
     var forgeOAuth = this.OAuthClient(scopes);
 
     return new Promise((resolve, reject) => {
+      console.log(_cached);
       if (
-        _cached[cache] !== null &&
+        _cached[cache] != null &&
         _cached[cache].expires_at > new Date().getTime()
       ) {
         resolve(_cached[cache]);
         return;
       }
-
-      var client_id = config.credentials.client_id;
-      var client_secret = config.credentials.client_secret;
 
       //new forgeSDK.AuthClientTwoLegged(client_id, client_secret, scopes);
       forgeOAuth
