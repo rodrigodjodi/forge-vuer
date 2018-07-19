@@ -1,17 +1,7 @@
-<template>
+  <template>
   <div class="home">
-    <select v-model="docId" name="scenes" id="scenes">
-      <option v-for="scene in scenes" :key="scene.name" :value="scene.urn">
-        {{scene.name}}
-      </option>
-    </select>
-    <select name="items" id="items" @input="changeItem">
-      <option v-for="(viewable, index) in viewables" :key="viewable.id" :value="index">
-        {{viewable.data.name}}
-      </option>
-    </select>
     <Viewer 
-      :documentId="docId"
+      :documentId="$route.meta.urn"
     ></Viewer>
     
   </div>
@@ -28,22 +18,10 @@ export default {
   },
   data() {
     return {
-      docId: "",
       viewItem: 0
     };
   },
-  computed: {
-    scenes() {
-      return this.$store.state.scenes;
-    },
-    viewables() {
-      return this.$store.state.viewer.viewables;
-    }
-  },
-  mounted() {
-    this.docId = this.$store.state.scenes[0].urn;
-    this.viewItem = this.$store.state.viewer.itemIndex;
-  },
+  computed: {},
   methods: {
     changeItem(val) {
       this.$store.commit("changeItem", val.target.value);
@@ -51,3 +29,7 @@ export default {
   }
 };
 </script>
+<style>
+.home {
+}
+</style>

@@ -5,7 +5,6 @@
 /* global Autodesk:false */
 import axios from "axios";
 
-var viewerApp;
 export default {
   props: {
     documentId: {
@@ -18,7 +17,8 @@ export default {
       options: {
         env: "AutodeskProduction",
         getAccessToken: this.getForgeToken
-      }
+      },
+      viewerApp: null
     };
   },
   computed: {
@@ -50,23 +50,24 @@ export default {
     },
     onInitialized() {
       console.log("initialized");
-      viewerApp = new Autodesk.Viewing.ViewingApplication("forgeViewer");
-      viewerApp.registerViewer(
-        viewerApp.k3D,
-        Autodesk.Viewing.Viewer3D //use Autodesk.Viewing.Private.GuiViewer3D for interface
+      this.viewerApp = new Autodesk.Viewing.ViewingApplication("forgeViewer");
+      this.viewerApp.registerViewer(
+        this.viewerApp.k3D,
+        Autodesk.Viewing.Private.GuiViewer3D //use Autodesk.Viewing.Private.GuiViewer3D for interface
       );
+
       this.loadDocument();
     },
     loadDocument() {
-      viewerApp.loadDocument(
+      this.viewerApp.loadDocument(
         this.documentId,
         this.onDocumentLoadSuccess,
         this.onDocumentLoadFailure
       );
     },
     onDocumentLoadSuccess(doc) {
-      let modelNodes = viewerApp.bubble.search(av.BubbleNode.MODEL_NODE); // 3D designs
-      let sheetNodes = viewerApp.bubble.search(av.BubbleNode.SHEET_NODE); // 2D designs
+      let modelNodes = this.viewerApp.bubble.search(av.BubbleNode.MODEL_NODE); // 3D designs
+      let sheetNodes = this.viewerApp.bubble.search(av.BubbleNode.SHEET_NODE); // 2D designs
       this.$store.commit("docLoad", modelNodes.concat(sheetNodes));
       if (this.viewables.length === 0) {
         console.error("Document contains no viewables.");
@@ -75,7 +76,7 @@ export default {
       this.selectItem(this.item);
     },
     selectItem(item) {
-      viewerApp.selectItem(
+      this.viewerApp.selectItem(
         this.viewables[item].data,
         this.onItemLoadSuccess,
         this.onItemLoadFail
@@ -85,6 +86,8 @@ export default {
       console.error("onDocumentLoadFailure() - errorCode:" + viewerErrorCode);
     },
     onItemLoadSuccess(viewer, item) {
+      window.v = viewer;
+      viewer.navigation.setReverseZoomDirection(true);
       console.log("Model loaded");
       console.log(item);
     },
@@ -100,7 +103,7 @@ export default {
 #forgeViewer {
   position: relative;
   width: 100%;
-  height: 600px;
+  height: 100%;
   margin: 0;
   background-color: #00f8ff;
 }

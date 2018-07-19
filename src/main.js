@@ -4,7 +4,8 @@ import router from "./router";
 import store from "./store";
 
 Vue.config.productionTip = false;
-
+import "@/assets/normalize.css";
+import "@/assets/skeleton.css";
 new Vue({
   router,
   store,
