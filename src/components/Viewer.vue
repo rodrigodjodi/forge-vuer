@@ -86,7 +86,6 @@ export default {
       console.error("onDocumentLoadFailure() - errorCode:" + viewerErrorCode);
     },
     onItemLoadSuccess(viewer, item) {
-      window.v = viewer;
       viewer.navigation.setReverseZoomDirection(true);
       console.log("Model loaded");
       console.log(item);
