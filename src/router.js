@@ -22,6 +22,17 @@ const router = new Router({
         title: "Armazém 07 e Armazém 09",
         defaultView: 2
       }
+    },
+    {
+      path: "/bake",
+      name: "bake",
+      component: Home,
+      meta: {
+        urn:
+          "urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YmFrZWZieC93YWxsLWJha2UuRkJY",
+        title: "bake fbx",
+        defaultView: 2
+      }
     }
   ]
 });
