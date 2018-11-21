@@ -33,6 +33,28 @@ const router = new Router({
         title: "bake fbx",
         defaultView: 2
       }
+    },
+    {
+      path: "/cwg",
+      name: "lessence",
+      component: Home,
+      meta: {
+        urn:
+          "urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Y3dnL0xFU1NFTkNFX1I2LTAxLmR3Zng",
+        title: "L'Èssence R6",
+        defaultView: 0
+      }
+    },
+    {
+      path: "/cantu",
+      name: "orleans",
+      component: Home,
+      meta: {
+        urn:
+          "urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Y2FudHUvT1JMRUFOU19JTVBMQU5UQUNBT19SMC5kd2Z4",
+        title: "Centro Logístico Orleans",
+        defaultView: 0
+      }
     }
   ]
 });
