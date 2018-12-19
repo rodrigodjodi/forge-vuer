@@ -55,6 +55,27 @@ const router = new Router({
         title: "Centro Logístico Orleans",
         defaultView: 0
       }
+    },
+    {
+      path: "/rox",
+      name: "rox",
+      component: Home,
+      meta: {
+        urn:
+          "urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YXZhbnR0aS9ST1hfUjAuZHdmeA",
+        title: "ROX Cabral",
+        defaultView: 0
+      }
+    },
+    {
+      path: "/mp3",
+      name: "MP3",
+      component: Home,
+      meta: {
+        urn: "urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9ydGUvbXAzLkZCWA",
+        title: "MP3",
+        defaultView: 0
+      }
     }
   ]
 });
