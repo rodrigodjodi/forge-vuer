@@ -11,13 +11,16 @@
   },
   "dependencies": {
     "cors": "^2.8.4",
-    "firebase-admin": "~5.12.1",
-    "firebase-functions": "^1.0.3",
-    "forge-apis": "^0.4.1"
+    "firebase-admin": "^8.6.0",
+    "firebase-functions": "^3.2.0",
+    "forge-apis": "^0.4.5"
   },
   "devDependencies": {
     "eslint": "^4.12.0",
     "eslint-plugin-promise": "^3.6.0"
+  },
+  "engines": {
+    "node": "10"
   },
   "private": true
 }

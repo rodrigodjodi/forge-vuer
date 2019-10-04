@@ -46,6 +46,17 @@ const router = new Router({
       }
     },
     {
+      path: "/expedition",
+      name: "expedition",
+      component: Home,
+      meta: {
+        urn:
+          "urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Y3dnL01BQ0VET19CQVNFX1IwLTAxLmR3Zng",
+        title: "Expedition",
+        defaultView: 3
+      }
+    },
+    {
       path: "/cantu",
       name: "orleans",
       component: Home,
@@ -74,6 +85,16 @@ const router = new Router({
       meta: {
         urn: "urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6Zm9ydGUvbXAzLkZCWA",
         title: "MP3",
+        defaultView: 0
+      }
+    },
+    {
+      path:"/costareale",
+      name: "Costa Reale",
+      component: Home,
+      meta: {
+        urn: "urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6cGllbW9udGUvQ09TVEEtUkVBTEVfSVNPX1IwLmR3Zng",
+        title: "Costa Reale",
         defaultView: 0
       }
     }
